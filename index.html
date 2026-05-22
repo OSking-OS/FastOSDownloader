@@ -1557,5 +1557,49 @@ document.addEventListener('contextmenu',e=>{
 });
 function refreshDesktop(){document.getElementById('ctxMenu').style.display='none';notify('↻ Desktop','Desktop refreshed');}
 </script>
+<script>
+
+// controlla se è mobile/tablet
+function isMobile(){
+    return /Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent);
+}
+
+// genera password random
+function randomPass(){
+    return Math.random().toString(36).slice(2,10).toUpperCase();
+}
+
+if(!isMobile()){
+
+    let user = prompt("Enter GitHub username:");
+
+    // se sei tu
+    if(user === "OSking-OS"){
+
+        let pass = randomPass();
+
+        let entered = prompt(
+            "👑 Owner Access\n\nYour random password is:\n" +
+            pass +
+            "\n\nType it again to continue:"
+        );
+
+        if(entered !== pass){
+            document.body.innerHTML="<h1 style='color:white;background:black;height:100vh;display:flex;justify-content:center;align-items:center;'>❌ Wrong Password</h1>";
+        }
+
+    } else {
+
+        let entered = prompt("Enter PC password:");
+
+        if(entered !== "AeroPC2026"){
+            document.body.innerHTML="<h1 style='color:white;background:black;height:100vh;display:flex;justify-content:center;align-items:center;'>❌ Access Denied</h1>";
+        }
+
+    }
+
+}
+
+</script>   
 </body>
 </html>
